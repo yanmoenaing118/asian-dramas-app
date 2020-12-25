@@ -27,5 +27,10 @@ export const Button = styled.a`
     padding: 8px 28px;
     margin: 0.8px 0;
   }
+
+  & > a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 // 1 54 21

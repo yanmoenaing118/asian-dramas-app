@@ -1,6 +1,8 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import { Fade } from "react-reveal";
 import { Button } from "./../ButtonElements";
+
 import {
   InfoContainer,
   InfoWrapper,
@@ -22,9 +24,10 @@ export default function InfoSection({
   headline,
   description,
   buttonLabel1,
-  buttonLabel2,
+
   lightText,
   lightBg,
+  link,
 }) {
   const [myspy, setMyspy] = useState(false);
   const renderCols = () => {
@@ -43,7 +46,11 @@ export default function InfoSection({
             <Heading lightText={lightText ? 1 : 0}>{headline}</Heading>
             <Subtitle lightText={lightText ? 1 : 0}>{description}</Subtitle>
             <BtnWrap>
-              <Button primary={true}>{buttonLabel1}</Button>
+              <Button primary={true}>
+                <Link href={link}>
+                  <a>{buttonLabel1}</a>
+                </Link>
+              </Button>
             </BtnWrap>
           </Column2>
         </>
@@ -56,7 +63,11 @@ export default function InfoSection({
             <Heading lightText={lightText ? 1 : 0}>{headline}</Heading>
             <Subtitle lightText={lightText ? 1 : 0}>{description}</Subtitle>
             <BtnWrap>
-              <Button primary={true}>{buttonLabel1}</Button>
+              <Button primary={true}>
+                <Link href={link}>
+                  <a>{buttonLabel1}</a>
+                </Link>
+              </Button>
             </BtnWrap>
           </Column1>
           <Column2>

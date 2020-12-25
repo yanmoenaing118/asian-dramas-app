@@ -24,7 +24,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("PARAMS", params);
   const dramas = getDramas(params.drama);
   return {
     props: {

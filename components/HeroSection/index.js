@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Fade } from "react-reveal";
 import { Button } from "../ButtonElements";
@@ -26,7 +27,9 @@ export default function HeroSection() {
         </HeroP>
         <HeroBtnWrapper>
           <Button primary big bigFont>
-            Go to Dramas
+            <Link href="/dramas/kdramas" passHref>
+              Go to Dramas
+            </Link>
           </Button>
         </HeroBtnWrapper>
       </HeroContent>

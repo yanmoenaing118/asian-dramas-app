@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import {
   SidebarContainer,
@@ -12,21 +13,22 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
     <SidebarContainer isOpen={isOpen}>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink href="/#korean" onClick={() => toggleSidebar()}>
-            Korean
-          </SidebarLink>
-          <SidebarLink href="/#chinese" onClick={() => toggleSidebar()}>
-            Chinese
-          </SidebarLink>
-          <SidebarLink href="/#thai" onClick={() => toggleSidebar()}>
-            Thailand
-          </SidebarLink>
-          <SidebarLink href="/#dramas" onClick={() => toggleSidebar()}>
-            Dramas
-          </SidebarLink>
+          <Link href="/#korean" passHref>
+            <SidebarLink onClick={(e) => toggleSidebar()}>Korean</SidebarLink>
+          </Link>
+
+          <Link href="/#chinese" passHref>
+            <SidebarLink onClick={(e) => toggleSidebar()}>Chinese</SidebarLink>
+          </Link>
+
+          <Link href="/#thailand" passHref>
+            <SidebarLink onClick={(e) => toggleSidebar()}>Thailand</SidebarLink>
+          </Link>
         </SidebarMenu>
         <SidebarBtnWrapper>
-          <SidebarRoute href="/signin">Sign in</SidebarRoute>
+          <Link href="/signin">
+            <SidebarRoute>Sign in</SidebarRoute>
+          </Link>
         </SidebarBtnWrapper>
       </SidebarWrapper>
     </SidebarContainer>

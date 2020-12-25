@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Link from "next/link";
+import link from "next/link";
 
 export const SidebarContainer = styled.aside`
   position: fixed;
@@ -50,13 +50,13 @@ export const SidebarBtnWrapper = styled.div`
   justify-content: center;
 `;
 
-export const SidebarRoute = styled(Link)`
+export const SidebarRoute = styled.a`
   text-decoration: none;
   border: none;
   background-color: var(--white);
-  border-radius: 5px;
+  border-radius: 50px;
   color: var(--primary-color);
-  padding: 16px 60px;
-  font-size: 1.6rem;
+  padding: 8px 36px;
+  font-size: 1.2rem;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 `;
