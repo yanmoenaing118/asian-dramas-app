@@ -1,89 +1,134 @@
-import Link from "next/link";
 import styled from "styled-components";
 
-export const Navbar = styled.div`
-  color: #fff;
-  // background-color: #470d0d;
-  background-color: transparent;
+export const Nav = styled.nav`
+  font-family: var(--secondary-font);
+  background-color: ${({ isTransparent }) =>
+    isTransparent ? "transparent" : "var(--primary-color)"};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  margin-top: -100px;
   position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 80px;
-  margin-top: -80px;
-  z-index: 500;
+  z-index: 999;
+  box-shadow: ${({ isTransparent }) =>
+    !isTransparent
+      ? "0 3px 5px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.2)"
+      : "none"};
+
+  @media screen and (max-width: 768px) {
+    height: 60px;
+  }
+  transition: all 0.3s ease-in-out;
 `;
 
-export const NavbarContainer = styled.nav`
-  margin: auto;
+export const NavContainer = styled.div`
+  width: 100%;
+  max-width: 1110px;
   display: flex;
   align-items: center;
-  max-width: 1440px;
   justify-content: space-between;
 `;
 
-export const Logo = styled.div`
+export const NavLogo = styled.a`
+  text-decoration: none;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
   margin-left: 24px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  font-weight: bolder;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-style: italic;
+  position: relative;
   cursor: pointer;
-`;
-
-export const NavbarItems = styled.ul`
-  list-style: none;
-  min-width: 48rem;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media screen and (max-width: 780px) {
-    display: none;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3.5px;
+    background-color: var(--white);
+    transform: translateX(3px) skew(14deg);
   }
-`;
 
-export const NavbarItem = styled.li`
-  display: flex;
-  align-items: center;
-  font-size: 1.7rem;
-  &:hover {
-    color: #d44a06;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
   }
-`;
-
-export const NavbarLink = styled(Link)`
-  display: block;
 `;
 
 export const MobileIcon = styled.div`
   display: none;
-  margin-right: 24px;
-  cursor: pointer;
-  @media screen and (max-width: 780px) {
-    display: block;
+
+  @media screen and (max-width: 768px) {
+    width: 70px;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray-3);
+    cursor: pointer;
   }
 `;
 
-export const NavbarBtn = styled.div`
-  display: block;
-  @media screen and (max-width: 780px) {
+export const NavMenu = styled.ul`
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-left: -80px;
+
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
 
-export const Signup = styled.button`
-  margin: 0 24px;
-  background: #d44a06;
-  padding: 12px 26px;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
+export const NavItem = styled.li`
+  height: 70px;
+  margin-bottom: -4px;
+`;
+
+export const NavLink = styled.a`
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0 24px;
+  height: 67px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: border-bottom 0.1s ease-in;
+  border-bottom: 4px solid transparent;
   cursor: pointer;
-  transition: background-color 0.1s ease-in-out;
 
   &:hover {
-    background-color: #d4581b;
+    /* color: lightgreen; */
+    border-bottom: 4px solid #fff;
   }
+  &.active {
+    border-bottom: 4px solid #ccc;
+  }
+`;
+
+export const NavBtn = styled.div`
+  height: 70px;
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const Signin = styled.a`
+  text-decoration: none;
+  padding: 8px 36px;
+
+  color: var(--color-gray-0);
+  border: 3px solid var(--primary-color);
 `;

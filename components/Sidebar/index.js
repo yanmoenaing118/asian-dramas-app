@@ -1,48 +1,34 @@
+import React from "react";
 import {
-  SidebarWrapper,
   SidebarContainer,
-  SidebarClose,
-  CloseIcon,
-  SidebarBtn,
-  SidebarItems,
-  SidebarItem,
+  SidebarBtnWrapper,
+  SidebarWrapper,
+  SidebarMenu,
   SidebarLink,
-  SignupBtn,
+  SidebarRoute,
 } from "./SidebarElements";
-
-export default function Sidebar(props) {
-  console.log(props);
+export default function Sidebar({ isOpen, toggleSidebar }) {
   return (
-    <SidebarWrapper isOpen={props.isOpen}>
-      <SidebarClose onClick={props.closeSidebar}>
-        <CloseIcon size="lg" />
-      </SidebarClose>
-      <SidebarContainer>
-        <SidebarItems>
-          <SidebarItem>
-            <SidebarLink href="/home">Home</SidebarLink>
-          </SidebarItem>
-
-          <SidebarItem>
-            <SidebarLink href="/dramas">Dramas</SidebarLink>
-          </SidebarItem>
-
-          <SidebarItem>
-            <SidebarLink href="/api">API</SidebarLink>
-          </SidebarItem>
-
-          <SidebarItem>
-            <SidebarLink href="/about">About</SidebarLink>
-          </SidebarItem>
-
-          <SidebarItem>
-            <SidebarLink href="/contact">Contact</SidebarLink>
-          </SidebarItem>
-        </SidebarItems>
-        <SidebarBtn>
-          <SignupBtn>Sign up</SignupBtn>
-        </SidebarBtn>
-      </SidebarContainer>
-    </SidebarWrapper>
+    <SidebarContainer isOpen={isOpen}>
+      <SidebarWrapper>
+        <SidebarMenu>
+          <SidebarLink href="/#korean" onClick={() => toggleSidebar()}>
+            Korean
+          </SidebarLink>
+          <SidebarLink href="/#chinese" onClick={() => toggleSidebar()}>
+            Chinese
+          </SidebarLink>
+          <SidebarLink href="/#thai" onClick={() => toggleSidebar()}>
+            Thailand
+          </SidebarLink>
+          <SidebarLink href="/#dramas" onClick={() => toggleSidebar()}>
+            Dramas
+          </SidebarLink>
+        </SidebarMenu>
+        <SidebarBtnWrapper>
+          <SidebarRoute href="/signin">Sign in</SidebarRoute>
+        </SidebarBtnWrapper>
+      </SidebarWrapper>
+    </SidebarContainer>
   );
 }
